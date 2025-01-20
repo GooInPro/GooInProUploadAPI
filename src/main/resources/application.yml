@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: UploadAPI
+  multipart:
+    max-file-size: 5MB
+    max-request-size: 20MB
+    location: /Users/jhyeong/Project/zzz
+    enabled: true
+
+
+org:
+  hyeong:
+    partTimer:
+      profile: /Users/jhyeong/Project/zzz
+      Document: /Users/jhyeong/Project/yyy
+    complaints: /Users/jhyeong/Project/xxx
+    jobPosting: /Users/jhyeong/Project/xxx
