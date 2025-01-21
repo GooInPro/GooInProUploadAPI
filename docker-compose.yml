@@ -1,4 +1,5 @@
-version: '3'
+
+########################## -> 있는 부분 수정
 
 services:
   nginx:
@@ -6,8 +7,9 @@ services:
     container_name: gooinpro_upload_api-nginx
     ports:
       - 80:80
+    #######################################################################################
     volumes:
-      - C:/upload:/usr/share/nginx/html:ro           # HTML 파일 마운트
+      - /Users/jhyeong/Project/ToyProject/PartTime_Check/upload:/usr/share/nginx/html:ro           # HTML 파일 마운트
     restart: always
 
   upload_container:
