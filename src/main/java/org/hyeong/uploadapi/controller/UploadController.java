@@ -25,7 +25,7 @@ public class UploadController {
     @Value("${org.hyeong.partTimer.profile}")
     private String uploadFolder_partTimer_profile;
 
-    @Value("${org.hyeong.partTimer.Document}")
+    @Value("${org.hyeong.partTimer.document}")
     private String uploadFolder_partTImer_Document;
 
     @Value("${org.hyeong.complaints}")
