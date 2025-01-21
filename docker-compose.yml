@@ -34,7 +34,7 @@ services:
 
     #######################################################################################
     volumes:  #볼륨 마운트 개인 별로 설정할 것
-      - C:/upload/:/app/upload   # 볼륨 마운트 설정
+      - /Users/jhyeong/Project/ToyProject/PartTime_Check/upload:/app/upload   # 볼륨 마운트 설정
 
 networks:
   uploadnet: {}   # 네트워크 설정
