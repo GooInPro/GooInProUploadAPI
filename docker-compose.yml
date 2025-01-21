@@ -1,0 +1,42 @@
+
+########################## -> 있는 부분 수정
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: gooinpro_upload_api-nginx
+    ports:
+      - 80:80
+    #######################################################################################
+    volumes:
+      - /Users/jhyeong/Project/ToyProject/PartTime_Check/upload:/usr/share/nginx/html:ro           # HTML 파일 마운트
+    restart: always
+
+  upload_container:
+    image: hyeong123/gooinpro_upload_api_container
+    depends_on:
+      - nginx   # 서비스 간 의존 관계 설정
+
+    container_name: gooinpro_upload_api_container
+    ports:
+      - 8085:8080
+
+    ######################################################################################
+    environment: #application.yml 참조 변수 설정(개인 별로 설정할 것
+      - spring.multipart.location=/app/upload
+      - spring.servlet.multipart.max-file-size=50MB    # 허용할 최대 파일 크기
+      - spring.servlet.multipart.max-request-size=50MB # 허용할 최대 요청 크기
+
+      - org.partTimer.profile=/app/upload/profile
+      - org.partTimer.document=/app/upload/document
+      - org.complaints=/app/upload/complaints
+      - org.jobPosting=/app/upload/jobPosting
+    networks:
+      - uploadnet
+
+    #######################################################################################
+    volumes:  #볼륨 마운트 개인 별로 설정할 것
+      - /Users/jhyeong/Project/ToyProject/PartTime_Check/upload:/app/upload   # 볼륨 마운트 설정
+
+networks:
+  uploadnet: {}   # 네트워크 설정

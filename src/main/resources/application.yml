@@ -2,16 +2,16 @@ spring:
   application:
     name: UploadAPI
   multipart:
-    max-file-size: 5MB
-    max-request-size: 20MB
-    location: /Users/jhyeong/Project/zzz
+    max-file-size: ${spring.servlet.multipart.max-file-size:5MB}
+    max-request-size: ${spring.servlet.multipart.max-request-size:20MB}
+    location: ${spring.multipart.location:/app/upload}
     enabled: true
 
 
 org:
   hyeong:
     partTimer:
-      profile: /Users/jhyeong/Project/zzz
-      Document: /Users/jhyeong/Project/yyy
-    complaints: /Users/jhyeong/Project/xxx
-    jobPosting: /Users/jhyeong/Project/xxx
+      profile: ${org.partTimer.profile:/app/upload/partTimer/profile}
+      document: ${org.partTimer.document:/app/upload/partTimer/document}
+    complaints: ${org.complaints:/app/upload/complaints}
+    jobPosting: ${org.jobPosting:/app/upload/jobposting}
